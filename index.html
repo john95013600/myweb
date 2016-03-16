@@ -6,7 +6,17 @@
 	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<style> 
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+			font-family: Lato, Arial, serif;
+			box-sizing: border-box;
+		}
+	/*	h2::selection {
+			background-color: #333;
+			color: #eee;
+		}*/
 		.section{
 			position: relative;
 			text-align: center;
@@ -23,38 +33,74 @@
 			box-sizing: border-box;
 		}
 		.nav-left{
+			float: left;
+			position: relative;
 			width: 30%;
-			background-color: #FFFFFF;
 		}
-		h2::selection {
-		background-color: #333;
-		color: #eee;
+		.nav-left h2{
+			width: 100px;
+		    /* padding: 0 0 0 10px; */
+		    margin: 0 0 0 10px;
+		    position: relative;
+		    background: #FF0066;
+		}
+		.nav-left::before{
+			content: "";
+		    position: absolute;
+		    top: 12px;
+		    left: 0;
+		    width: 80%;
+		    border-bottom: 4px solid #EAEEEF;
 		}
 		.nav-right{
+			float: left;
 			width: 70%;
 			background-color: #333;
 		}
 		.nav-photo{
 			position: fixed;
-			top:50px;
+			top:0px;
+			left: 40%;
 			width:20%;
 			height: 200px;
 			background-color: #00FF1C;
 		}
+		#pic{
+			margin: auto;
+			width: 100px;
+			height: 100px;
+			border-radius: 50px;
+			background: url("https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xpa1/v/t1.0-1/p160x160/12642628_937714256264400_8544861419305800050_n.jpg?oh=643260e6130d6a930a5c564734b0d44c&oe=578DFB16");
+		}
+		#pic::after{
+			content: "曾聖發"; color: #1c2b3d;
+			position: relative;
+			top:110px;
+		}
+		/*#pic:hover{
+			position: relative;
+			top:-10px;
+			width: 120px;
+		    height: 120px;
+		    border-radius: 60px;
+		}
+		#pic:hover::after{
+			position: relative;
+			top:120px;
+		}*/
 	</style>
 	<script type="text/javascript" src="jquery.fullPage.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 		    $('#fullpage').fullpage({
 		        menu: '#menu',
-		        anchors:['firstPage', 'secondPage','thirdpage','fourthPage'],
+		        anchors:['關於我', '興趣','thirdpage','fourthPage'],
 		        navigation: true,
 		        navigationPosition: 'right',
-		        navigationTooltips: ['firstPage', 'secondPage','thirdpage','fourthPage'],
+		        navigationTooltips: ['關於我', '興趣','thirdpage','fourthPage'],
 		        css3: true,
 		        scrollingSpeed: 700,
 		        scrollOverflow: false,
-
 		        sectionsColor: [ '#4BBFC3', '#7BAABE', 'whitesmoke', '#000']
 		    });
 		});
@@ -69,13 +115,16 @@
 
 	   
     <div class="section">
-    <div class="nav-photo">me xxoo</div>
+	    <div class="nav-photo">			<h2>xxoo</h2>
+			<div id="pic"></div>
+	  
+	    </div>
     	<div class="nav-mid">
 			<div class="nav-left">
-				<h2>About me</h2>
+				<h2>關於我</h2>
 			</div>
 			<div class="nav-right">
-				
+				QAQAQ
 			</div>
 		</div>
     </div>
