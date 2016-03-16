@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<style> 
+		.section{
+			position: relative;
+			text-align: center;
+		}
+		.nav-mid{
+			position: relative;
+			top:20%;
+			width: 80%;
+			height: 50%;
+			margin: auto;
+			background-color: #FF0066;
+			border: 5px  dotted black;
+			border-radius: 20px;
+			box-sizing: border-box;
+		}
+		.nav-left{
+			width: 30%;
+			background-color: #FFFFFF;
+		}
+		h2::selection {
+		background-color: #333;
+		color: #eee;
+		}
+		.nav-right{
+			width: 70%;
+			background-color: #333;
+		}
+		.nav-photo{
+			position: fixed;
+			top:50px;
+			width:20%;
+			height: 200px;
+			background-color: #00FF1C;
+		}
+	</style>
+	<script type="text/javascript" src="jquery.fullPage.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#fullpage').fullpage({
+		        menu: '#menu',
+		        anchors:['firstPage', 'secondPage','thirdpage','fourthPage'],
+		        navigation: true,
+		        navigationPosition: 'right',
+		        navigationTooltips: ['firstPage', 'secondPage','thirdpage','fourthPage'],
+		        css3: true,
+		        scrollingSpeed: 700,
+		        scrollOverflow: false,
+
+		        sectionsColor: [ '#4BBFC3', '#7BAABE', 'whitesmoke', '#000']
+		    });
+		});
+
+	</script>
+</head>
+<body>
+
+
+	<div id="fullpage">
+		
+
+	   
+    <div class="section">
+    <div class="nav-photo">me xxoo</div>
+    	<div class="nav-mid">
+			<div class="nav-left">
+				<h2>About me</h2>
+			</div>
+			<div class="nav-right">
+				
+			</div>
+		</div>
+    </div>
+    <div class="section">
+		<div class="nav-mid">
+			<div class="nav-left">
+				<h2>About me</h2>
+			</div>
+			<div class="nav-right">
+				
+			</div>
+		</div>
+    </div>
+    <div class="section">Some section</div>
+     <div class="section">
+		    <div class="slide" data-anchor="slide1"><h1> Slide 1</h1> </div>
+		    <div class="slide"> Slide 2 </div>
+		    <div class="slide"> Slide 3 </div>
+		    <div class="slide"> Slide 4 </div>
+		</div>
+
+</div>
+</body>
+</html>
