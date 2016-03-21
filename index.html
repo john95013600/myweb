@@ -12,6 +12,7 @@
 			padding: 0px;
 			font-family: Lato, Arial, serif;
 			box-sizing: border-box;
+			font-weight: 600;
 		}
 	/*	h2::selection {
 			background-color: #333;
@@ -32,16 +33,21 @@
 			border-radius: 20px;
 			box-sizing: border-box;
 		}
+		.nav-extend{
+			height: 45%;
+			top: 0px;
+			margin: 15px auto;
+		}
 		.nav-left{
 			float: left;
 			position: relative;
 			width: 30%;
 		}
-		.nav-left h2{
+		.nav-left h1{
 			width: 100px;
-		    /* padding: 0 0 0 10px; */
-		    margin: 0 0 0 10px;
+		    margin: 0 0 0 20px;
 		    position: relative;
+		    color: #BECACC;
 		    background: #FF0066;
 		}
 		.nav-left::before{
@@ -54,40 +60,77 @@
 		}
 		.nav-right{
 			float: left;
-			width: 70%;
-			background-color: #333;
+			width: 64%;
+			/*background-color: #333;*/
+			font-size: 20px;
+			text-align: left;
+			line-height: 2;
 		}
 		.nav-photo{
 			position: fixed;
 			top:0px;
-			left: 40%;
-			width:20%;
+			left: 0px;
+			width:100%;
 			height: 200px;
-			background-color: #00FF1C;
+			/*background-color: #00FF1C;*/
+			text-align: left;
+		}
+		.nav-photo span{
+			color: rgb(253, 175, 29);
+			font-size: 40px;
+			margin: 15px 20px;
+			letter-spacing: -2px;
 		}
 		#pic{
 			margin: auto;
 			width: 100px;
 			height: 100px;
 			border-radius: 50px;
+			text-align: center;
 			background: url("https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xpa1/v/t1.0-1/p160x160/12642628_937714256264400_8544861419305800050_n.jpg?oh=643260e6130d6a930a5c564734b0d44c&oe=578DFB16");
 		}
 		#pic::after{
 			content: "曾聖發"; color: #1c2b3d;
 			position: relative;
+			font-size: 20px;
+			font-weight: 600;
 			top:110px;
 		}
-		/*#pic:hover{
-			position: relative;
-			top:-10px;
-			width: 120px;
-		    height: 120px;
-		    border-radius: 60px;
+		.rotate{
+			margin: 0px 5px;
+			min-width: 180px;
+			min-height: 34px;
 		}
-		#pic:hover::after{
-			position: relative;
-			top:120px;
-		}*/
+		.switch-on{
+			position: absolute;
+			display: inline-block;
+			animation: rotateInWord .5s linear forwards;
+			-webkit-animation: rotateInWord .5s linear forwards;
+		}
+		.switch-off{
+			position: absolute;
+			display: inline-block;
+			animation: rotateOutWord .5s linear forwards;
+			-webkit-animation: rotateOutWord .5s linear forwards;
+		}
+
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes rotateInWord {
+	    0% { opacity: 0; -webkit-transform: translateY(-30px); }
+		100% { opacity: 1; -webkit-transform: translateY(0px); }
+		}
+		@-webkit-keyframes rotateOutWord {
+		    0% { opacity: 1; -webkit-transform: translateY(0px); }
+			100% { opacity: 0; -webkit-transform: translateY(30px); }
+		}
+		@keyframes rotateInWord {
+		    0% { opacity: 0; transform: translateY(-30px); }
+			100% { opacity: 1; transform: translateY(0px); }
+		}
+		@keyframes rotateOutWord {
+		    0% { opacity: 1; transform: translateY(0px); }
+			100% { opacity: 0; transform: translateY(30px); }
+		}
 	</style>
 	<script type="text/javascript" src="jquery.fullPage.js"></script>
 	<script type="text/javascript">
@@ -101,10 +144,20 @@
 		        css3: true,
 		        scrollingSpeed: 700,
 		        scrollOverflow: false,
-		        sectionsColor: [ '#4BBFC3', '#7BAABE', 'whitesmoke', '#000']
+		        sectionsColor: [ '#4BBFC3', '#7BAABE', 'whitesmoke', '#345']
 		    });
+
+			var rot = $('.rotate');
+				setInterval(function(){
+				seq = rot.find('.switch-on').next().length ? rot.find('.switch-on').next().index() : 0;
+				rot.find('.switch-on').addClass('switch-off').removeClass('switch-on');
+				rot.find('span').eq(seq).addClass('switch-on').removeClass('switch-off');
+			},3000);
+
+
 		});
 
+		
 	</script>
 </head>
 <body>
@@ -115,23 +168,43 @@
 
 	   
     <div class="section">
-	    <div class="nav-photo">			<h2>xxoo</h2>
+	    <div class="nav-photo">
+		    <span>Living</span><span>Like</span>What<span>You</span>Want<span></span><span></span>		
+		    <br>
 			<div id="pic"></div>
-	  
 	    </div>
     	<div class="nav-mid">
 			<div class="nav-left">
-				<h2>關於我</h2>
+				<h1>關於我</h1>
 			</div>
 			<div class="nav-right">
-				QAQAQ
+				<br>
+				目前就讀國立暨南國立大學大學部四年級，寫過C++、Sql、Javascript，修過清大教授開的網路線上課程，對網路有基本的認識，平常有空的時候會去參加一些校內的Workshop(例:MoLi)
 			</div>
 		</div>
     </div>
     <div class="section">
-		<div class="nav-mid">
+		<div class="nav-mid nav-extend">
 			<div class="nav-left">
-				<h2>About me</h2>
+				<h1>興趣</h1>
+			</div>
+			<div class="nav-right">
+				<br><span>
+				平常喜歡
+				<span class="rotate">
+					<span class="switch-on">看電影</span>
+					<span class="switch-off">打羽毛球</span>
+					<span class="switch-off">跑步</span>
+					<span class="switch-off">學好玩的語言</span>
+					<span class="switch-off">吃美食</span>
+				</span><br>
+				目前就讀國立暨南國立大學大學部四年級，
+				</span>
+			</div>
+		</div>
+		<div class="nav-mid nav-extend">
+			<div class="nav-left">
+				<h1>愛好</h1>
 			</div>
 			<div class="nav-right">
 				
@@ -140,8 +213,9 @@
     </div>
     <div class="section">Some section</div>
      <div class="section">
-		    <div class="slide" data-anchor="slide1"><h1> Slide 1</h1> </div>
-		    <div class="slide"> Slide 2 </div>
+		    <div class="slide" data-anchor="slide1"><img src="https://scontent-tpe1-1.xx.fbcdn.net/hphotos-xfl1/v/t1.0-0/p206x206/12301647_1665105460412330_5027635791761769114_n.jpg?oh=abfda5b8dbdaae6300e3886257a46343&oe=5752DF5D" alt="">
+		    <br>Slide 3</div>
+		    <div class="slide"> <img src="https://scontent-tpe1-1.xx.fbcdn.net/hphotos-xfl1/v/t1.0-0/p206x206/12301647_1665105460412330_5027635791761769114_n.jpg?oh=abfda5b8dbdaae6300e3886257a46343&oe=5752DF5D" alt=""> </div>
 		    <div class="slide"> Slide 3 </div>
 		    <div class="slide"> Slide 4 </div>
 		</div>
